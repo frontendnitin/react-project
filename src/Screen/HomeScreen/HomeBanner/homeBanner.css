@@ -1,0 +1,105 @@
+.homeBanner {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.homeBannerimg1 {
+  object-fit: cover;
+  height: auto;
+  width: 100%;
+  display: block;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent);
+}
+
+.homeBanneritemDiv {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  margin-top: -250px;
+  z-index: 2;
+}
+
+.homeBanneritemDivCard {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 20px 0 15px;
+}
+
+.homeBanneritemDivCardTitle {
+  margin: 0 20px;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.imghomeBanneritemDivCard {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0px 12px;
+}
+
+.imgBannerhomeDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 7px;
+  box-sizing: border-box;
+  gap: 2px;
+}
+
+.bigImgContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.bigimg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.bigImgName {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
+  padding: 5px 10px;
+}
+
+.imgBannerDivimg {
+  width: 100%;
+  max-width: 144px;
+  height: 105px;
+  object-fit: contain;
+}
+
+.imgBannerimgName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.homeBanneritemDivCardText {
+  margin: 20px 20px;
+  font-size: 14px;
+  color: #007185;
+  font-weight: 300;
+  &:hover {
+    cursor: pointer;
+    color: #555;
+    transition: color 0.1s ease;
+  }
+}
