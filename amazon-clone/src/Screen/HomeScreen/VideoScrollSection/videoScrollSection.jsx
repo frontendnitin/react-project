@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import videoData from "./videoScrollData.json";
 import "./videoScrollSection.css";
+import ScrollRow from "../../../Component/Scroll/ScrollRow"; // adjust path if needed
 
 const VideoScrollSection = () => {
   return (
@@ -14,28 +15,33 @@ const VideoScrollSection = () => {
 
           <div className="videoScrollContent">
             {/* Video container */}
-            <div className="scrollContainer">
+            <div className="videoContainer">
               <VideoPlayer src={item.videoSrc} poster={item.poster} />
             </div>
 
             {/* Images */}
-            <div className="videoscrollImages">
+            <ScrollRow>
               {item.products.map((details, i) => (
                 <div className="productCard" key={i}>
-                  <img
-                    src={details.src}
-                    className="scrollImg"
-                    alt={details.name}
-                  />
+                  <div className="imgWrapper">
+                    <img
+                      src={details.src}
+                      className="scrollImg"
+                      alt={details.name}
+                    />
+                  </div>
                   <div className="productdetails">{details.name}</div>
+                  <div className="offer">
+                    <span className="discount">{details.discount}</span>
+                    <span className="deal">{details.deal}</span>
+                  </div>
                   <div className="productPrice">
                     <span className="newPrice">{details.price}</span>
                     <span className="oldPrice">{details.oldprice}</span>
                   </div>
                 </div>
               ))}
-            </div>
-            <ScrollArrow direction="right" />
+            </ScrollRow>
           </div>
         </div>
       ))}
@@ -51,7 +57,7 @@ const VideoPlayer = ({ src, poster }) => {
 
   return (
     <div className="scrollContainer">
-      <span className="liveBadge">LIVE</span>
+      {/* <span className="liveBadge">LIVE</span> */}
       <video
         ref={videoRef}
         className="hoverVideo"
@@ -64,26 +70,6 @@ const VideoPlayer = ({ src, poster }) => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       />
-    </div>
-
-    // <video
-    //   ref={videoRef}
-    //   className="hoverVideo"
-    //   src={src}
-    //   poster={poster}
-    //   muted
-    //   loop
-    //   controls
-    //   onMouseEnter={handleMouseEnter}
-    //   onMouseLeave={handleMouseLeave}
-    // />
-  );
-};
-
-const ScrollArrow = ({ direction }) => {
-  return (
-    <div className={`srollArrow ${direction}`}>
-      {direction === "left" ? "‹" : "›"}
     </div>
   );
 };
